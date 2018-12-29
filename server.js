@@ -3,7 +3,8 @@ const bodyParser = require('body-parser');
 const request = require('request');
 const app = express()
 
-const apiKey = '*****************';
+//const apiKey = '*****************';
+const apiKey=process.env.API_KEY;
 
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -15,6 +16,8 @@ app.get('/', function (req, res) {
 
 app.post('/', function (req, res) {
   let city = req.body.city;
+  console.log('API Key from the environment variable is:'+apiKey);
+
   let url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${apiKey}`
 
   request(url, function (err, response, body) {
