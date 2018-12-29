@@ -10,7 +10,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.set('view engine', 'ejs')
 
 app.get('/', function (req, res) {
-  res.render('welcome', {weather: null, error: null});
+ res.send("Weather Details..." + req.params[0]+" " +req.params[1]);
 })
 
 app.post('/', function (req, res) {
