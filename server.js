@@ -12,6 +12,7 @@ app.set('view engine', 'ejs')
 
 app.get('/', function (req, res) {
   res.render('index', {weather: null, error: null});
+  console.log("HostName: " + process.env.HOSTNAME);
 })
 
 app.post('/', function (req, res) {
